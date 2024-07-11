@@ -32,6 +32,12 @@ const App = () => {
             type: 'info'
           })
         })
+        .catch(error => {
+          newMessage({
+            text: error.response.data.error,
+            type: 'error'
+          })
+        })
     }    
     const add = (cleanedPersons) => {
       personService
@@ -42,6 +48,12 @@ const App = () => {
           newMessage({
             text: `Added ${returnedPerson.name}`,
             type: 'info'
+          })
+        })
+        .catch(error => {
+          newMessage({
+            text: error.response.data.error,
+            type: 'error'
           })
         })
     }
